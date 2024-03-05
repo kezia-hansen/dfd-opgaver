@@ -7,6 +7,32 @@
 }
 
 
+/* Styling baseret på betingelser */
+
+/* Kort uden både et billede og en overskrift skal have en justeret font-størrelse og linjehøjde for paragraf tekst.*/
+.card:not(:has(img, h3)) {
+    p {
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+}
+
+/* Kort uden billeder skal have en forøget font-størrelse for overskrifter.*/
+.card:not(:has(img)) {
+    h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Kort med billeder skal have nul padding,men deres indhold skal matche padding’en fra de øvrige kort. */
+
+.card:has(img) {
+    padding: 0;
+
+    .content {
+        padding: 1rem;
+    }
+}
 
 
 @layer reset, cards;
@@ -64,27 +90,4 @@
         place-content: center;
         block-size: 100svh;
     }
-}
-
-/* Styling baseret på betingelser */
-
-/* Kort uden både et billede og en overskrift skal have en justeret font-størrelse og linjehøjde for paragraf tekst.*/
-.card:not(:has(img)):not(:has(h3))>.content>p {
-    font-size: 1.25rem;
-    line-height: 1.4;
-}
-
-/* Kort uden billeder skal have en forøget font-størrelse for overskrifter.*/
-.card:not(:has(img)) h3 {
-    font-size: 1.6rem;
-}
-
-/* Kort med billeder skal have nul padding,men deres indhold skal matche padding’en fra de øvrige kort. */
-
-.card:has(img) {
-    padding: 0;
-}
-
-.card:has(> img) .content {
-    padding: 10px;
 }
