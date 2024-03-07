@@ -16,5 +16,32 @@ const { cardContent } = Astro.props;
 <style>
   ul {
     list-style: none;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: var(--card-gap);
+    overflow-x: auto;
+
+    > *{
+      flex: 1 0 50%;
+    }
+  }
+
+li{
+padding: var(--card-padding);
+color: var(--card-text-color);
+background: var( --card-background);
+gap:  var(--card-gap);
+border-radius: var(--card-border-radius);
+ scroll-snap-align: center;
   }
 </style>
+
+
+<!--     :root {
+- `--content-width` – indholdets bredde
+- `--card-padding` – kortenes padding
+- `--card-gap` – afstanden mellem kortene
+- `--card-border-radius` – kortenes border-radius
+- `--card-background` – kortenes baggrundsfarve
+- `--card-text-color` – kortenes tekstfarve
+    } -->
